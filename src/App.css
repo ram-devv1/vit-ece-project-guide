@@ -416,23 +416,168 @@
   font-size: 0.88rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    min-height: 100dvh;
+  }
+
+  .chat {
+    order: 1;
+    width: 100%;
+    min-height: calc(100dvh - 78px);
+    padding: 18px 16px 12px;
+  }
+
   .chat-bar {
     flex-direction: column;
+    gap: 12px;
+    padding-bottom: 16px;
   }
 
-  .sidebar {
-    width: 72px;
+  .chat-meta {
+    margin-bottom: 8px;
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
   }
 
-  .nav-label,
-  .nav-tag,
-  .brand-name {
+  .chat-bar h1 {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+  }
+
+  .tab-purpose {
+    margin-top: 8px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .status-chip {
+    align-self: flex-start;
+    padding: 7px 10px;
+  }
+
+  .messages {
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .message {
+    max-width: 94%;
+  }
+
+  .message p {
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 0.94rem;
+    line-height: 1.52;
+  }
+
+  .empty {
+    justify-content: flex-start;
+    padding: 22px 6px;
+  }
+
+  .quick-options {
+    width: 100%;
+  }
+
+  .quick-options button {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 130px;
+  }
+
+  .composer {
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  .composer input {
+    padding: 13px 14px;
+    font-size: 0.95rem;
+  }
+
+  .composer button {
+    width: 48px;
+  }
+
+  .sidebar,
+  .collapsed .sidebar {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    order: 2;
+    width: 100%;
+    border-top: 1px solid var(--line);
+    border-right: 0;
+    padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
+    background: oklch(0.18 0.022 282 / 0.94);
+  }
+
+  .brand,
+  .toggle {
     display: none;
   }
 
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 0;
+  }
+
   .nav-item,
-  .toggle {
+  .collapsed .nav-item {
     justify-content: center;
+    gap: 6px;
+    min-height: 58px;
+    border-radius: 14px;
+    padding: 9px 6px;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-label,
+  .collapsed .nav-label {
+    display: block;
+    flex: initial;
+    max-width: 100%;
+    font-size: 0.72rem;
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .nav-tag,
+  .brand-name,
+  .collapsed .nav-tag,
+  .collapsed .brand-name {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .chat {
+    padding-inline: 12px;
+  }
+
+  .tab-purpose {
+    font-size: 0.88rem;
+  }
+
+  .message {
+    max-width: 98%;
+  }
+
+  .quick-options button {
+    flex-basis: 100%;
+  }
+
+  .nav-label,
+  .collapsed .nav-label {
+    font-size: 0.68rem;
   }
 }
